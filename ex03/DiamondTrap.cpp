@@ -1,25 +1,47 @@
 #include "DiamondTrap.hpp"
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-DiamondTrap::DiamondTrap(const std::string& name) :ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(void)
+			: ClapTrap("default_clap_name", 100, 50, 30), _name("default")
 {
-	this->_name = name;
- 	this->_hitpoints = FragTrap::_hitpoints;
-	this->_energy_points = ScavTrap::_energy_points;
-	this->_attack_power = FragTrap::_attack_power;
-	    std::cout << "ClapTrap: " << ClapTrap::_name << std::endl;
-	std::cout << "DiamondTrap: " << this->_name << "が生成されました。" << std::endl;
+	std::cout << this->_name << "が生成されました。" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const std::string& name)
+			: ClapTrap(name + "_clap_name", 100, 50, 30),
+			ScavTrap(name),
+			FragTrap(name),
+			_name(name)
+{
+	std::cout << _name << _attack_power<< "が生成されました。" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+		: ClapTrap(static_cast<const ClapTrap&>(other)),
+			ScavTrap(static_cast<const ScavTrap&>(other)),
+			FragTrap(static_cast<const FragTrap&>(other)),
+			 _name(other._name)
+{
+	std::cout << _name << "が生成されました。" << std::endl;
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
+{
+	if (this != &other)
+	{
+		ClapTrap::operator=(static_cast<const ClapTrap&>(other));
+		this->_name = other._name;
+	}
+	return (*this);
 }
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "DiamondTrap: " << _name << std::endl;
-	std::cout << "ClapTrap:あああ " << ClapTrap::_name << std::endl;
+	std::cout << "ClapTrap: " << ClapTrap::_name << "です。" << std::endl;
+	std::cout << "DiamondTrap: " << _name << "です。" << std::endl;
+
 }
 
-DiamondTrap::~DiamondTrap(void)
+DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap: " << _name << "が破壊されました。" << std::endl;
-	return ;
+		std::cout << _name << "が破壊されました。" << std::endl;
 }

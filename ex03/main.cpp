@@ -1,11 +1,14 @@
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
 #include <iostream>
+#include "DiamondTrap.hpp"
 
-int main() {
-    DiamondTrap dt("Diamond");
-    dt.whoAmI();  // DiamondTrapの名前とClapTrapの名前を表示
+int main()
+{
+	DiamondTrap dia;
+	DiamondTrap	Dia1("Dia1");
+	DiamondTrap	Dia2("Dia2");
+	DiamondTrap copy(Dia1);
 
-    return 0;
+	dia = Dia1;
+	copy.attack("Dia");
+	copy.whoAmI();
 }

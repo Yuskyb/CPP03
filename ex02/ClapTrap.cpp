@@ -1,13 +1,43 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(void) :
+	_name("default"),
+	_hitpoints(10),
+	_energy_points(10),
+	_attack_power(0)
 {
-	_name = name;
-	_hitpoints = 10;
-	_energy_points = 10;
-	_attack_power = 0;
-	std::cout << "ClapTrap: " << _name << "が生成されました。" << std::endl;
-	return ;
+	std::cout << _name << "が生成されました。" << std::endl;
+}
+
+ClapTrap::ClapTrap(const std::string& name, unsigned int hitpoints,
+					unsigned int energy_points, unsigned int attack_power) :
+	_name(name),
+	_hitpoints(hitpoints),
+	_energy_points(energy_points),
+	_attack_power(attack_power)
+{
+	std::cout << _name << "が生成されました。" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other) :
+	_name(other._name),
+	_hitpoints(other._hitpoints),
+	_energy_points(other._energy_points),
+	_attack_power(other._attack_power)
+{
+	std::cout << _name << "が生成されました。(コピー)" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
+	if (this != &other)
+	{
+		_name = other._name;
+		_hitpoints = other._hitpoints;
+		_energy_points = other._energy_points;
+		_attack_power = other._attack_power;
+	}
+	return (*this);
 }
 
 
@@ -58,6 +88,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap: " << _name << "が破壊されました。" << std::endl;
+	std::cout << _name << "が破壊されました。" << std::endl;
 	return ;
 }

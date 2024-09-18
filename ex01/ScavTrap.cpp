@@ -1,15 +1,30 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(void) : ClapTrap("default", 100, 50, 20)
 {
-	_hitpoints = 100;
-	_energy_points = 50;
-	_attack_power = 20;
+	std::cout << _name << "が生成されました。" << std::endl;
+}
+
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name, 100, 50, 20)
+{
 	std::cout << "ScavTrap: " << _name << "が生成されました。" << std::endl;
 	return ;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(static_cast<const ClapTrap&>(other))
+{
+	std::cout << _name << "が生成されました。(コピー)" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+	if (this != &other)
+	{
+		ClapTrap::operator=(static_cast<const ClapTrap&>(other));
+	}
+	return (*this);
+}
 
 void	ScavTrap::attack(const std::string& target)
 {

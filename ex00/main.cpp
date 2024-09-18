@@ -3,6 +3,8 @@
 int main()
 {
     // ClapTrapオブジェクトの生成
+    ClapTrap claptrapd;
+    claptrapd.takeDamage(2);
     ClapTrap claptrap1("ClapTrap1");
     ClapTrap claptrap2("ClapTrap2");
 
