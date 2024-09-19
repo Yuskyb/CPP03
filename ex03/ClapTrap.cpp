@@ -40,6 +40,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	return (*this);
 }
 
+unsigned int ClapTrap::get_attack(void) const
+{
+	return (this->_attack_power);
+}
 
 void	ClapTrap::attack(const std::string& target)
 {
@@ -59,6 +63,12 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if (this->_hitpoints <=0)
+	{
+		std::cout << "ヒットポイントがありません" << std::endl;
+		return ;
+	}
+
 	std::cout << _name << ": " << amount << "ダメージを受けました。" << std::endl;
 	this->_hitpoints -= amount;
 	if (this->_hitpoints <= 0)
@@ -79,10 +89,11 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	this->_energy_points--;
 	std::cout << _name << ": " << amount << "回復しました。" << std::endl;
-	if (amount >= 2147483647)
-		this->_hitpoints += 2147483647;
+	if (this->_hitpoints >= 2147483647 - amount)
+		this->_hitpoints = 2147483647;
 	else
 		this->_hitpoints += amount;
+	std::cout << _name << "現在のHPは" << _hitpoints << "です。" << std::endl;
 	return ;
 }
 
