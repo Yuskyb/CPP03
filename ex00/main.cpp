@@ -2,29 +2,12 @@
 
 int main()
 {
-    // ClapTrapオブジェクトの生成
-    ClapTrap claptrapd;
-    claptrapd.takeDamage(2);
-    ClapTrap claptrap1("ClapTrap1");
-    ClapTrap claptrap2("ClapTrap2");
+    ClapTrap clap1;
+    ClapTrap clap2("clap2");
+    ClapTrap clap3(clap2);
+    clap1 = clap3;
 
-    std::cout << std::endl;
-
-    // ClapTrap1がClapTrap2を攻撃
-    claptrap1.attack("ClapTrap2");
-
-    // ClapTrap2が5ポイントのダメージを受ける
-    claptrap2.takeDamage(5);
-
-    std::cout << std::endl;
-
-    // ClapTrap2が5ポイント回復
-    claptrap2.beRepaired(5);
-
-    std::cout << std::endl;
-
-    // ClapTrap2が10ポイントのダメージを受けて倒される
-    claptrap2.takeDamage(10);
-
-    return 0;
+    clap1.attack("clap2");
+    clap2.takeDamage(clap1.get_attack());
+    clap2.beRepaired(1);
 }
