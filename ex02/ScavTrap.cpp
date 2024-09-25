@@ -3,18 +3,18 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap("default", 100, 50, 20)
 {
-	std::cout << _name << "が生成されました。" << std::endl;
+	std::cout << _name << "was generated" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "ScavTrap: " << _name << "が生成されました。" << std::endl;
+	std::cout << "ScavTrap: " << _name << "was generated" << std::endl;
 	return ;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << _name << "が生成されました。(コピー)" << std::endl;
+	std::cout << "ScavTrap: " << _name << " was generated copy" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
@@ -30,25 +30,25 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitpoints <=0)
 	{
-		std::cout << "ヒットポイントがありません" << std::endl;
+		std::cout << "No hitpoints" << std::endl;
 		return ;
 	}
 	if (this->_energy_points <=0)
 	{
-		std::cout << "エナジーポイントがありません" << std::endl;
+		std::cout << "No energy_points" << std::endl;
 		return ;
 	}
 	this->_energy_points--;
-	std::cout << "ScavTrap " << _name << ": " << target << "に攻撃します。" << std::endl;
+	std::cout << _name << " attacks " << target << ",causing" << get_attack() << "points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap: ゲートキーパーモードになりました。" << std::endl;
+	std::cout << "ScavTrap: You are now in Gatekeeper mode." << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap: " << _name << "が破壊されました。" << std::endl;
+	std::cout << "ScavTrap: " << _name << "was destroyed" << std::endl;
 	return ;
 }

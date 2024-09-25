@@ -8,6 +8,6 @@ int main()
     clap1 = clap3;
 
     clap1.attack("clap2");
-    clap2.takeDamage(clap1.get_attack());
+    clap2.takeDamage(100);
     clap2.beRepaired(1);
 }
