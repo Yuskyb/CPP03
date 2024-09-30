@@ -26,22 +26,6 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 	return (*this);
 }
 
-void	ScavTrap::attack(const std::string& target)
-{
-	if (this->_hitpoints <=0)
-	{
-		std::cout << "No hitpoints" << std::endl;
-		return ;
-	}
-	if (this->_energy_points <=0)
-	{
-		std::cout << "No energy_points" << std::endl;
-		return ;
-	}
-	this->_energy_points--;
-	std::cout << _name << " attacks " << target << ",causing" << get_attack() << "points of damage!" << std::endl;
-}
-
 void	ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap: You are now in Gatekeeper mode." << std::endl;

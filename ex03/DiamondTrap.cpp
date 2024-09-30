@@ -16,9 +16,9 @@ DiamondTrap::DiamondTrap(const std::string& name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
-		: ClapTrap(static_cast<ClapTrap&>(other)),
-			ScavTrap(static_cast<ScavTrap&>(other)),
-			FragTrap(static_cast<FragTrap&>(other)),
+		: ClapTrap(other),
+			ScavTrap(other),
+			FragTrap(other),
 			 _name(other._name)
 {
 	std::cout << _name << "was generated" << std::endl;
@@ -28,7 +28,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
 	if (this != &other)
 	{
-		ClapTrap::operator=(static_cast<ClapTrap&>(other));
+		ClapTrap::operator=(other);
 		this->_name = other._name;
 	}
 	return (*this);
@@ -38,10 +38,15 @@ void	DiamondTrap::whoAmI(void)
 {
 	std::cout << "ClapTrap: " << ClapTrap::_name << std::endl;
 	std::cout << "DiamondTrap: " << _name << std::endl;
+}
 
+void DiamondTrap::attack(const std::string& target)
+{
+	(void)target;
+	ScavTrap::attack(target);
 }
 
 DiamondTrap::~DiamondTrap()
 {
-		std::cout << _name << "was destroyed" << std::endl;
+		std::cout << _name << " was destroyed" << std::endl;
 }
