@@ -10,6 +10,6 @@ int main()
 
 	dia = Dia1;
 	copy.attack("Dia");
-	Dia1.takeDamage(copy.get_attack());
+	Dia1.takeDamage(copy.getAttackPower());
 	copy.whoAmI();
 }

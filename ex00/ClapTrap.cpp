@@ -40,7 +40,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	return (*this);
 }
 
-unsigned int ClapTrap::get_attack(void) const
+unsigned int ClapTrap::getAttackPower(void) const
 {
 	return (this->_attack_power);
 }
@@ -58,7 +58,7 @@ void	ClapTrap::attack(const std::string& target)
 		return ;
 	}
 	this->_energy_points--;
-	std::cout << _name << " attacks " << target << ",causing " << get_attack() << " points of damage!" << std::endl;
+	std::cout << _name << " attacks " << target << ",causing " << getAttackPower() << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

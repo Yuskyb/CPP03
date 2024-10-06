@@ -8,7 +8,7 @@ int main()
     scav1 = scav3;
 
     scav1.attack("scav2");
-    scav2.takeDamage(100);
+    scav2.takeDamage(scav2.getAttackPower());
     scav2.beRepaired(1);
 	scav1.guardGate();
 }

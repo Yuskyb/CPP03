@@ -3,7 +3,7 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap("default", 100, 50, 20)
 {
-	std::cout << _name << " was generated" << std::endl;
+	std::cout << "ScavTrap: " << _name << " was generated" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name, 100, 50, 20)
@@ -26,10 +26,20 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 	return (*this);
 }
 
-
-unsigned int ScavTrap::get_attack(void) const
+void	ScavTrap::attack(const std::string& target)
 {
-	return (this->_attack_power);
+	if (this->_hitpoints <=0)
+	{
+		std::cout << "No hitpoints" << std::endl;
+		return ;
+	}
+	if (this->_energy_points <=0)
+	{
+		std::cout << "No energy_points" << std::endl;
+		return ;
+	}
+	this->_energy_points--;
+	std::cout << "ScavTrap: " << _name << " attacks " << target << ",causing " << getAttackPower() << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)

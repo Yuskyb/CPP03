@@ -8,7 +8,7 @@ int main()
     frag1 = frag3;
 
     frag1.attack("frag2");
-    frag2.takeDamage(100);
+    frag2.takeDamage(frag1.getAttackPower());
     frag2.beRepaired(1);
     frag3.highFivesGuys();
 }

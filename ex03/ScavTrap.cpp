@@ -3,7 +3,7 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap("default", 100, 50, 20)
 {
-	std::cout << _name << " was generated" << std::endl;
+	std::cout << "ScavTrap: " << _name << " was generated" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name, 100, 50, 20)
@@ -21,14 +21,9 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
 	{
-		ClapTrap::operator=(static_cast<ClapTrap>(other));
+		ClapTrap::operator=(other);
 	}
 	return (*this);
-}
-
-unsigned int ScavTrap::get_attack(void) const
-{
-	return (this->_attack_power);
 }
 
 void	ScavTrap::attack(const std::string& target)
@@ -44,12 +39,12 @@ void	ScavTrap::attack(const std::string& target)
 		return ;
 	}
 	this->_energy_points--;
-	std::cout << _name << " attacks " << target << ",causing " << get_attack() << " points of damage!" << std::endl;
+	std::cout << "ScavTrap: " << _name << " attacks " << target << ",causing " << getAttackPower() << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap:  You are now in Gatekeeper mode." << std::endl;
+	std::cout << "ScavTrap: You are now in Gatekeeper mode." << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
