@@ -40,6 +40,11 @@ void	DiamondTrap::whoAmI(void)
 	std::cout << "DiamondTrap: " << _name << std::endl;
 }
 
+unsigned int DiamondTrap::get_attack(void) const
+{
+	return (this->_attack_power);
+}
+
 void DiamondTrap::attack(const std::string& target)
 {
 	(void)target;

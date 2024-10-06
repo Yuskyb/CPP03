@@ -31,6 +31,11 @@ void	ScavTrap::guardGate(void)
 	std::cout << "ScavTrap: You are now in Gatekeeper mode." << std::endl;
 }
 
+unsigned int ScavTrap::get_attack(void) const
+{
+	return (this->_attack_power);
+}
+
 ScavTrap::~ScavTrap(void)
 {
 	std::cout << "ScavTrap: " << _name << "was destroyed" << std::endl;

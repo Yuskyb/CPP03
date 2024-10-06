@@ -25,6 +25,11 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 	return (*this);
 }
 
+unsigned int FragTrap::get_attack(void) const
+{
+	return (this->_attack_power);
+}
+
 void	FragTrap::attack(const std::string& target)
 {
 	if (this->_hitpoints <=0)

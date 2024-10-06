@@ -25,6 +25,11 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 	return (*this);
 }
 
+unsigned int FragTrap::get_attack(void) const
+{
+	return (this->_attack_power);
+}
+
 void	FragTrap::highFivesGuys(void)
 {
 	std::cout << "Let's high-five!!" << std::endl;

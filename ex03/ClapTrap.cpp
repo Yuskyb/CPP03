@@ -75,7 +75,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "Already no hitpoints" << std::endl;
 		return ;
 	}
-	std::cout << _name << ": " << amount << "damaged" << std::endl;
+	std::cout << _name << ": " << amount << " damaged" << std::endl;
 	if (this->_hitpoints <= 0)
 		std::cout << _name << ": dead" << std::endl;
 }
